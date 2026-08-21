@@ -1,0 +1,40 @@
+HADOOP WORDCOUNT ASSIGNMENT - RESULTS
+
+Input file:
+Gutenberg 200.txt
+
+Input file size:
+Approximately 8.3 MB
+
+HDFS Block Configuration:
+The file was stored using approximately 2 MB HDFS blocks.
+The file was divided into 4 HDFS blocks.
+
+WORDCOUNT EXPERIMENT 1
+Split max size: 2 MB
+Number of splits: 4
+Map tasks: 4
+Reduce tasks: 1
+Execution time: 33.578 seconds
+Status: SUCCESS
+
+WORDCOUNT EXPERIMENT 2
+Split max size: 8 MB
+Number of splits: 4
+Map tasks: 4
+Reduce tasks: 1
+Execution time: 41.566 seconds
+Status: SUCCESS
+
+OBSERVATION
+
+Changing the split size can affect the performance because it changes
+how the input file is divided and processed by Mapper tasks. A smaller
+split size can create more splits and allow more parallel processing,
+but it can also increase overhead. A larger split size can reduce
+overhead but may provide less parallel processing.
+
+In this experiment, both 2 MB and 8 MB split sizes resulted in 4 splits
+because the input file was stored in 4 HDFS blocks. The execution time
+was 33.578 seconds for 2 MB and 41.566 seconds for 8 MB. The difference
+in execution time can be due to Hadoop and system processing overhead.
